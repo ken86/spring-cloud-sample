@@ -13,3 +13,13 @@ eureka:
 spring:
   application:
     name: sample-client
+  h2:
+    console:
+      enabled: true
+      path: /console
+      settings:
+        web-allow-others: true
+  jpa:
+    open-in-view: true
+
+
