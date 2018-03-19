@@ -1,0 +1,13 @@
+.classpath
+.externalToolBuilders
+.idea/
+.project
+.settings/
+.springBeans
+
+*~
+*.rej
+*.iml
+*.ipr
+*.iws
+target/
