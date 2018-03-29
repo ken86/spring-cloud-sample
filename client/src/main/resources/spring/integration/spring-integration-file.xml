@@ -18,6 +18,7 @@
 
     <integration:inbound-channel-adapter channel="fileInChannel" ref="aCompositeFileInboundPoller"  >
         <integration:poller fixed-delay="5000" />
+
     </integration:inbound-channel-adapter>
 
     <integration:service-activator id="secondStepFileProcessor" ref="fileHandler" method="handleFile" input-channel="fileInChannel" output-channel="nullChannel" />
