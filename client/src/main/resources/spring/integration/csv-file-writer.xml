@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="csvFileWriter" class="org.kd.eureka.file.csv.CsvFileWriter" >
+        <constructor-arg value="f://data//file//csv//" />
+        <property name="flatFileItemWriter" ref="fileItemWriter" />
+        <property name="fileNameGenerator" ref="fileNameGenerator" />
+    </bean>
+
+    <bean id="fileNameGenerator" class="org.kd.eureka.file.FileNameGenerator"/>
+
+    <bean id="fileItemWriter" class="org.springframework.batch.item.file.FlatFileItemWriter" >
+        <property name="lineAggregator" ref="fileLineAggregator"/>
+        <property name="headerCallback" >
+            <bean class="org.kd.eureka.file.FileHeaderCallbackHandler">
+                <property name="header" value="id,name,department" />
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="fileLineAggregator" class="org.springframework.batch.item.file.transform.FormatterLineAggregator" >
+        <property name="fieldExtractor" >
+            <bean class="org.kd.eureka.file.csv.CustomFieldExtractor">
+                <property name="names" >
+                    <list value-type="java.lang.String">
+                        <value>id</value>
+                        <value>name</value>
+                        <value>department</value>
+                    </list>
+                </property>
+                <property name="formats" >
+                    <map key-type="java.lang.String" value-type="java.text.Format" />
+                </property>
+            </bean>
+        </property>
+        <property name="format" >
+            <value>%s,%s,%s</value>
+        </property>
+    </bean>
+
+</beans>
