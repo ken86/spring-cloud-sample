@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
 @EnableEurekaClient
-@ImportResource("classpath:spring/integration/spring-integration-file.xml")
+@ImportResource("classpath:spring/spring-integration-file.xml")
 public class EurekaSampleClient implements CommandLineRunner {
 
     @Autowired
