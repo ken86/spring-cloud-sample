@@ -4,18 +4,18 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 			http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="csvFileWriter" class="org.kd.eureka.file.csv.CsvFileWriter" >
+    <bean id="csvFileWriter" class="org.kd.ms.file.csv.CsvFileWriter" >
         <constructor-arg value="/Users/hksgr/data" />
         <property name="flatFileItemWriter" ref="fileItemWriter" />
         <property name="fileNameGenerator" ref="fileNameGenerator" />
     </bean>
 
-    <bean id="fileNameGenerator" class="org.kd.eureka.file.FileNameGenerator"/>
+    <bean id="fileNameGenerator" class="org.kd.ms.file.FileNameGenerator"/>
 
     <bean id="fileItemWriter" class="org.springframework.batch.item.file.FlatFileItemWriter"  >
         <property name="lineAggregator" ref="fileLineAggregator"/>
         <property name="headerCallback" >
-            <bean class="org.kd.eureka.file.FileHeaderCallbackHandler">
+            <bean class="org.kd.ms.file.FileHeaderCallbackHandler">
                 <property name="header" value="id,name,department" />
             </bean>
         </property>
@@ -23,7 +23,7 @@
 
     <bean id="fileLineAggregator" class="org.springframework.batch.item.file.transform.FormatterLineAggregator" >
         <property name="fieldExtractor" >
-            <bean class="org.kd.eureka.file.csv.CustomFieldExtractor">
+            <bean class="org.kd.ms.file.csv.CustomFieldExtractor">
                 <property name="names" >
                     <list value-type="java.lang.String">
                         <value>id</value>

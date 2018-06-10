@@ -20,5 +20,7 @@
     <modules>
         <module>client</module>
         <module>eurekaserver</module>
+        <module>robbin-client</module>
+        <module>robbin-server</module>
     </modules>
 </project>

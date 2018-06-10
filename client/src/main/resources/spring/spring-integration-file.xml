@@ -12,9 +12,9 @@
 
     <integration:channel id="fileInChannel" />
 
-    <bean id="aCompositeFileInboundPoller" class="org.kd.eureka.integration.ACompositeFileInboundPoller" />
+    <bean id="aCompositeFileInboundPoller" class="org.kd.ms.integration.ACompositeFileInboundPoller" />
 
-    <bean id="fileHandler" class="org.kd.eureka.integration.FileHandler" />
+    <bean id="fileHandler" class="org.kd.ms.integration.FileHandler" />
 
     <integration:inbound-channel-adapter channel="fileInChannel" ref="aCompositeFileInboundPoller"  >
         <integration:poller fixed-delay="5000" />
