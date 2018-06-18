@@ -20,5 +20,7 @@
     <modules>
         <module>client</module>
         <module>eurekaserver</module>
+        <module>ribbon-server</module>
+        <module>ribbon-client</module>
     </modules>
 </project>
