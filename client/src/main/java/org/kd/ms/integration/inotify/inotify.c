@@ -11,12 +11,12 @@
 #include <malloc.h>
 #define EVENT_SIZE ( sizeof (struct inotify_event) )
 #define BUF_LEN ( 1024 * ( EVENT_SIZE + 16 ) )
-#ifndef _Included_org_kdev_LinuxInotifyDirectoryMonitor
-#define _Included_org_kdev_LinuxInotifyDirectoryMonitor
+#ifndef _Included_org_kd_ms_integration_inotify_DirMonitorImpl
+#define _Included_org_kd_ms_integration_inotify_DirMonitorImpl
 #ifdef __cplusplus
 extern "C" {
 #endif
-JNIEXPORT void JNICALL org_kdev_LinuxInotifyDirectoryMonitor_monitor(JNIEnv * env, jobject obj, jstring javaSpecifiedPath) {
+JNIEXPORT void JNICALL Java_org_kd_ms_integration_inotify_DirMonitorImpl_monitor(JNIEnv * env, jobject obj, jstring javaSpecifiedPath) {
 	int fd = inotify_init();
 	if ( fd < 0 ) {
 		perror( "inotify_init" );

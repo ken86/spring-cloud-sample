@@ -12,4 +12,11 @@
 
     <bean id="dirMonitor" class="org.kd.ms.integration.inotify.DirMonitorImpl"/>
 
+    <bean class="org.kd.ms.integration.inotify.DirMonitorInboundFileEndpoint">
+        <property name="outputChannel" ref="fileChannel"/>
+        <property name="directoryToMonitor" value="file:/home/hk/test_folder"/>
+    </bean>
+
+    <integration:channel id="fileChannel"/>
+
 </beans>
