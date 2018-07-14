@@ -22,5 +22,6 @@
         <module>eurekaserver</module>
         <module>ribbon-server</module>
         <module>ribbon-client</module>
+        <module>common-config</module>
     </modules>
 </project>
