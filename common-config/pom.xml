@@ -11,11 +11,11 @@
 
     <artifactId>common-config</artifactId>
 
-    <properties>
+    <!--<properties>
         <env>dev1</env>
-    </properties>
+    </properties>-->
 
-    <profiles>
+    <!--<profiles>
         <profile>
             <id>dev1</id>
             <properties>
@@ -29,25 +29,81 @@
                 <env>dev2</env>
             </properties>
         </profile>
-    </profiles>
+    </profiles>-->
 
     <build>
-        <filters>
+        <!--<filters>
             <filter>src/main/filters/filter-${env}.properties</filter>
-        </filters>
+        </filters>-->
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
         </resources>
-        <!--<plugins>
+        <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>default-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.outputDirectory}/dev1</outputDirectory>
+                            <filters>
+                                <filter>${basedir}/src/main/filters/filter-dev1.properties</filter>
+                            </filters>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>dev2-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.outputDirectory}/dev2</outputDirectory>
+                            <filters>
+                                <filter>${basedir}/src/main/filters/filter-dev2.properties</filter>
+                            </filters>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
-        </plugins>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>default-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>dev1</classifier>
+                            <classesDirectory>${project.build.outputDirectory}/dev1</classesDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>dev2-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>dev2</classifier>
+                            <classesDirectory>${project.build.outputDirectory}/dev2</classesDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
 
     </build>
 
