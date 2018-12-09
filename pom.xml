@@ -23,5 +23,12 @@
         <module>ribbon-server</module>
         <module>ribbon-client</module>
         <module>common-config</module>
+        <module>tools-kd</module>
+        <module>command-server</module>
     </modules>
+
+    <dependencies>
+
+
+    </dependencies>
 </project>
