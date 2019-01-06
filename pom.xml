@@ -26,6 +26,7 @@
         <module>tools-kd</module>
         <module>command-server</module>
         <module>custom-server</module>
+        <module>jetty-example</module>
     </modules>
 
     <dependencies>
