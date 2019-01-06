@@ -29,7 +29,7 @@ public class NioSimpleClient {
                 socketChannel.configureBlocking(false);
 
                 socketChannel.register(selector, SelectionKey.OP_CONNECT);
-                socketChannel.connect(new InetSocketAddress("localhost", 9999));
+                socketChannel.connect(new InetSocketAddress("localhost", 9090));
 
                 System.out.println("Localhost: " + socketChannel.getLocalAddress());
 

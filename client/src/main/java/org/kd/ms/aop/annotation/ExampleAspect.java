@@ -11,9 +11,11 @@ public class ExampleAspect {
     @Around("@annotation(org.kd.ms.aop.annotation.PrintStartEnd)")
     public Object printStartEnd(ProceedingJoinPoint joinPoint) throws Throwable {
 
+        System.out.println("print before: " + joinPoint.getSignature());
+
         final Object proceed = joinPoint.proceed();
 
-        System.out.println(joinPoint.getSignature());
+        System.out.println("print after: " + joinPoint.getSignature());
 
         return proceed;
     }

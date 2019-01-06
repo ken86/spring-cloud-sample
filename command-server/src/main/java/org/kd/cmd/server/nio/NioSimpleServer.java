@@ -15,12 +15,13 @@ public class NioSimpleServer {
 
         try (Selector selector = Selector.open(); ServerSocketChannel serverSocketChannel = ServerSocketChannel.open()) {
             serverSocketChannel.configureBlocking(false);
-            serverSocketChannel.socket().bind(new InetSocketAddress(9999));
+            serverSocketChannel.socket().bind(new InetSocketAddress(9090));
             ByteBuffer byteBuffer = ByteBuffer.allocate(256);
             serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
 
             while (true) {
                 int n = selector.select();
+                System.out.println("incoming select");
                 if (n == 0) {
                     continue;
                 }

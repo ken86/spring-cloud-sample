@@ -25,6 +25,7 @@
         <module>common-config</module>
         <module>tools-kd</module>
         <module>command-server</module>
+        <module>custom-server</module>
     </modules>
 
     <dependencies>
