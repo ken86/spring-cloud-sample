@@ -21,9 +21,9 @@ public class AppConfig {
     @Bean
     public Server jaxRsServer() {
         JAXRSServerFactoryBean factory = RuntimeDelegate.getInstance().createEndpoint( jaxRsApiApplication(), JAXRSServerFactoryBean.class );
-        factory.setServiceBeans( Arrays.< Object >asList( productRestService() ) );
+        factory.setServiceBeans( Arrays.<Object>asList( productRestService() ) );
         factory.setAddress( '/' + factory.getAddress() );
-        factory.setProviders( Arrays.< Object >asList( jsonProvider() ) );
+        factory.setProviders( Arrays.<Object>asList( jsonProvider() ) );
         return factory.create();
     }
 

@@ -27,6 +27,7 @@
         <module>command-server</module>
         <module>custom-server</module>
         <module>jetty-example</module>
+        <module>tomcat-example</module>
     </modules>
 
     <dependencies>

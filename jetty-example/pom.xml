@@ -16,12 +16,36 @@
         <org.apache.cxf.version>3.2.7</org.apache.cxf.version>
         <org.springframework.version>5.0.8.RELEASE</org.springframework.version>
         <org.eclipse.jetty.version>9.4.12.v20180830</org.eclipse.jetty.version>
+        <netty.version>4.1.32.Final</netty.version>
     </properties>
 
     <dependencies>
         <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>${netty.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+            <version>${org.apache.cxf.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http-jetty</artifactId>
+            <version>${org.apache.cxf.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxws</artifactId>
+            <version>${org.apache.cxf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http</artifactId>
             <version>${org.apache.cxf.version}</version>
         </dependency>
 
@@ -66,7 +90,6 @@
             <artifactId>spring-web</artifactId>
             <version>${org.springframework.version}</version>
         </dependency>
-
 
         <dependency>
             <groupId>org.springframework</groupId>
