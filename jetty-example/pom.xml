@@ -16,7 +16,7 @@
         <org.apache.cxf.version>3.2.7</org.apache.cxf.version>
         <org.springframework.version>5.0.8.RELEASE</org.springframework.version>
         <org.eclipse.jetty.version>9.4.17.v20190418</org.eclipse.jetty.version>
-        <netty.version>4.1.32.Final</netty.version>
+        <netty.version>4.1.42.Final</netty.version>
     </properties>
 
     <dependencies>
