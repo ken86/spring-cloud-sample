@@ -13,7 +13,7 @@
 
     <properties>
         <org.springframework.version>5.0.8.RELEASE</org.springframework.version>
-        <tomcat.version>8.5.40</tomcat.version>
+        <tomcat.version>8.5.50</tomcat.version>
     </properties>
 
     <dependencies>
